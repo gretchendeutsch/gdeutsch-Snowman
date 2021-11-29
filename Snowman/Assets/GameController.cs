@@ -26,6 +26,12 @@ public class GameController : MonoBehaviour
         this.PlayScreen.SetActive(false);
     }
 
+    public void Start()
+    {
+        this.StartScreen.SetActive(true);
+        this.PlayScreen.SetActive(false);
+    }
+
 
 
 }
