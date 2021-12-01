@@ -9,6 +9,12 @@ public class GameController : MonoBehaviour
 
     public UnityEngine.UI.Text GetWord;
 
+    public UnityEngine.UI.Text CheckGuess;
+
+    public UnityEngine.UI.Text GuessesRemaining;
+
+    public UnityEngine.UI.Text GetGuessedLetters;
+
     public UnityEngine.UI.Button StartButton;
 
     public GameObject StartScreen;
@@ -45,9 +51,18 @@ public class GameController : MonoBehaviour
     public void SubmitGuess()
     {
         string guess = PlayerGuess.text;
-        PlayerGuess.text = string.Empty;
         Debug.Log(guess);
         GetWord.text = this.guessingGame.GetWord();
+        GetGuessedLetters.text = this.guessingGame.GetGuessedLetters();
+        CheckGuess.text = this.guessingGame.CheckGuess(PlayerGuess.text);
+        PlayerGuess.text = string.Empty;
+    }
+
+    public void GameOverScreen()
+    {
+        PlayerLost.text = this.guessingGame.PlayerLost();
+        CorrectWord.text = this.guessingGame.CorrectWord();
+         this.StartButton.gameObject.SetActive(false);
     }
 
     
